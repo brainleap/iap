@@ -34,7 +34,7 @@ func NewClient(clientID, clientSecret string) *Client {
 	return c
 }
 
-// Client provides PlayStore in-app billing API.
+// Client provides Cafebazaar in-app billing API.
 type Client struct {
 	OAuth  *oauth2.Config
 	Client *http.Client

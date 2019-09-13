@@ -64,9 +64,7 @@ func NewClientWithProxy(jsonKey []byte, proxy string) (*Client, error) {
 
 	ctx := context.WithValue(context.Background(), oauth2.HTTPClient, c)
 
-	return &Client{
-		Client: conf.Client(ctx),
-	}, nil
+	return &Client{Client: conf.Client(ctx)}, nil
 }
 
 // Client provides PlayStore in-app billing API.

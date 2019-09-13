@@ -5,8 +5,8 @@ type AcknowledgementState int
 
 // List of acknowledgement states.
 const (
-	NotAcknowledged = 0
-	Acknowledged    = 1
+	NotAcknowledged AcknowledgementState = 0
+	Acknowledged    AcknowledgementState = 1
 )
 
 // CancelReason is the data type for cancel reasons.
@@ -14,10 +14,10 @@ type CancelReason int
 
 // List of cancel reasons.
 const (
-	CRUserCanceled      = 0
-	CRSystemCanceled    = 1
-	CRReplaced          = 2
-	CRDeveloperCanceled = 3
+	CRUserCanceled      CancelReason = 0
+	CRSystemCanceled    CancelReason = 1
+	CRReplaced          CancelReason = 2
+	CRDeveloperCanceled CancelReason = 3
 )
 
 // CancelSurveyReason is the data type for cancel survey reasons.
@@ -25,11 +25,11 @@ type CancelSurveyReason int
 
 // List of cancel survey reasons.
 const (
-	CSROther          = 0
-	CSRNoUse          = 1
-	CSRTechnicalIssue = 2
-	CSRCostRelated    = 3
-	CSRFoundBetter    = 4
+	CSROther          CancelSurveyReason = 0
+	CSRNoUse          CancelSurveyReason = 1
+	CSRTechnicalIssue CancelSurveyReason = 2
+	CSRCostRelated    CancelSurveyReason = 3
+	CSRFoundBetter    CancelSurveyReason = 4
 )
 
 // ConsumptionState is the data type for consumption states.
@@ -37,8 +37,8 @@ type ConsumptionState int
 
 // List of consumption states.
 const (
-	NotConsumed = 0
-	Consumed    = 1
+	NotConsumed ConsumptionState = 0
+	Consumed    ConsumptionState = 1
 )
 
 // PaymentState is the data type for payment states.
@@ -46,10 +46,10 @@ type PaymentState int
 
 // List of payment states.
 const (
-	PaymentPending   = 0
-	PaymentReceived  = 1
-	PaymentFreeTrial = 2
-	PaymentDeferred  = 3
+	PaymentPending   PaymentState = 0
+	PaymentReceived  PaymentState = 1
+	PaymentFreeTrial PaymentState = 2
+	PaymentDeferred  PaymentState = 3
 )
 
 // PriceChangeState is the data type for price change states.
@@ -57,8 +57,8 @@ type PriceChangeState int
 
 // List of price change states.
 const (
-	PCOutstanding = 0
-	PCAccepted    = 1
+	PCOutstanding PriceChangeState = 0
+	PCAccepted    PriceChangeState = 1
 )
 
 // PurchaseState is the data type for purchase states.
@@ -66,9 +66,9 @@ type PurchaseState int
 
 // List of purchase states.
 const (
-	PurchaseDone     = 0
-	PurchaseCanceled = 1
-	PurchasePending  = 2
+	PurchaseDone     PurchaseState = 0
+	PurchaseCanceled PurchaseState = 1
+	PurchasePending  PurchaseState = 2
 )
 
 // PurchaseType is the data type for purchase types.
@@ -76,9 +76,9 @@ type PurchaseType int
 
 // List of purchase types.
 const (
-	PTTest     = 0
-	PTPromo    = 1
-	PTRewarded = 2
+	PTTest     PurchaseType = 0
+	PTPromo    PurchaseType = 1
+	PTRewarded PurchaseType = 2
 )
 
 // Product indicates the status of an in-app product purchase.
