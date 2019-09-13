@@ -21,7 +21,7 @@ const (
 func NewClient(clientID, clientSecret string) *Client {
 	c := &Client{}
 
-	c.Conf = &oauth2.Config{
+	c.OAuth = &oauth2.Config{
 		ClientID:     clientID,
 		ClientSecret: clientSecret,
 		Scopes:       []string{authScope},
@@ -36,24 +36,24 @@ func NewClient(clientID, clientSecret string) *Client {
 
 // Client provides PlayStore in-app billing API.
 type Client struct {
-	Conf   *oauth2.Config
+	OAuth  *oauth2.Config
 	Client *http.Client
 }
 
 // AuthCodeURL returns URL to which user must be redirected to be asked for
 // permission.
 func (c *Client) AuthCodeURL() string {
-	return c.Conf.AuthCodeURL("state", oauth2.AccessTypeOffline)
+	return c.OAuth.AuthCodeURL("state", oauth2.AccessTypeOffline)
 }
 
 // Setup initializes the client by providing authorization code.
 func (c *Client) Setup(authCode string) error {
-	tok, err := c.Conf.Exchange(context.Background(), authCode)
+	tok, err := c.OAuth.Exchange(context.Background(), authCode)
 	if err != nil {
 		return err
 	}
 
-	c.Client = c.Conf.Client(context.Background(), tok)
+	c.Client = c.OAuth.Client(context.Background(), tok)
 
 	return nil
 }
