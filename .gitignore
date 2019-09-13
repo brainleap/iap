@@ -1,0 +1,6 @@
+# Junk files
+.DS_Store
+*~
+
+# Project files
+vendor/
