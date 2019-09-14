@@ -54,9 +54,9 @@ type InApp struct {
 	OriginalPurchaseDate    string `json:"original_purchase_date"`
 	OriginalPurchaseDateMS  string `json:"original_purchase_date_ms"`
 	OriginalPurchaseDatePST string `json:"original_purchase_date_pst"`
-	CancellationDate        string `json:"cancellation_date,omitempty"`
-	CancellationDateMS      string `json:"cancellation_date_ms,omitempty"`
-	CancellationDatePST     string `json:"cancellation_date_pst,omitempty"`
+	CancellationDate        string `json:"cancellation_date"`
+	CancellationDateMS      string `json:"cancellation_date_ms"`
+	CancellationDatePST     string `json:"cancellation_date_pst"`
 	CancellationReason      string `json:"cancellation_reason"`
 }
 
