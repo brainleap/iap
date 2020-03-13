@@ -18,13 +18,14 @@ const (
 )
 
 // NewClient creates a new Cafebazaar client.
-func NewClient(clientID, clientSecret string) *Client {
+func NewClient(clientID, clientSecret, redirectUrl string) *Client {
 	c := &Client{}
 
 	c.OAuth = &oauth2.Config{
 		ClientID:     clientID,
 		ClientSecret: clientSecret,
 		Scopes:       []string{authScope},
+		RedirectURL: redirectUrl,
 		Endpoint: oauth2.Endpoint{
 			AuthURL:  authorizeURL,
 			TokenURL: tokenURL,
