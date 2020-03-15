@@ -48,15 +48,18 @@ func (c *Client) AuthCodeURL() string {
 }
 
 // Setup initializes the client by providing authorization code.
-func (c *Client) Setup(authCode string) error {
+func (c *Client) Setup(authCode string) (*oauth2.Token, error) {
 	tok, err := c.OAuth.Exchange(context.Background(), authCode)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	c.Client = c.OAuth.Client(context.Background(), tok)
+	return tok, nil
+}
 
-	return nil
+func (c *Client) SetupWithToken(tok *oauth2.Token){
+    c.Client = c.OAuth.Client(context.Background(), tok)
 }
 
 // ValidateProduct checks the purchase and consumption status of an in-app
